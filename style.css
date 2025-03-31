@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Product+Sans&family=Roboto+Condensed:wght@400;700&display=swap');
+
+body {
+    font-family: 'Product Sans', sans-serif;
+    background-image: linear-gradient(90deg, #c95145 0, #913d37 45px);
+    color: white;
+    overflow: hidden;
+}
+
+/* Glitchy Text Effect */
+.glitch {
+    position: relative;
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    animation: glitch 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(2px, 900px, 50px, 0);
+    animation: glitch 1.5s infinite;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    clip: rect(85px, 900px, 140px, 0);
+    animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, -2px); }
+    40% { transform: translate(-2px, 2px); }
+    60% { transform: translate(2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+/* Squirmie-Themed Buttons */
+.button {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: 2px solid #913d37;
+    border-radius: 10px;
+    color: #913d37;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #c95145;
+    transition: width 0.4s;
+    z-index: 0;
+}
+
+.button:hover::before {
+    width: 100%;
+}
+
+.button:hover {
+    color: white;
+}
+
+.button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Adding a Squirmie Wiggle Effect */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(2deg); }
+}
+
+.wiggly-button {
+    animation: wiggle 1.2s infinite;
+}
+
+/* Windows 7 Taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(180deg, #2a2a2a, #3a3a3a);
+    border-top: 1px solid #4d4d4d;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+/* Start Button */
+.start-button {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #0078d7;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.start-button:hover {
+    background-color: #005bb5;
+}
+
+.start-button img {
+    height: 24px;
+    margin-right: 5px;
+}
+
+/* Taskbar Icons */
+.taskbar-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.taskbar-icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.taskbar-icon:hover {
+    transform: scale(1.1);
+}
+/* Squirmie Style Menu */
+.squirmie-menu {
+    position: fixed;
+    bottom: 45px;
+    left: 10px;
+    width: 300px;
+    background-color: #ffcc00; /* Squirmie Yellow */
+    border: 3px solid #913d37; /* Squirmie Red */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    animation: wiggle 1.2s infinite;
+}
+
+/* Menu Items */
+.menu-item {
+    padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #913d37;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: #c95145;
+    color: white;
+}
+
+/* Wiggle Animation (Already exists, but adding here for clarity) */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+    75% { transform: rotate(2deg); }
+}
+/* Squish and Stretch Animation */
+@keyframes squish-stretch {
+    0% {
+        transform: scaleX(0.5) scaleY(1);
+    }
+    25% {
+        transform: scaleX(1.1) scaleY(0.9);
+    }
+    50% {
+        transform: scaleX(1.1) scaleY(0.9);
+    }
+    75% {
+        transform: scaleX(0.9) scaleY(1.1);
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
+}
+
+/* Trigger squish/stretch when menu is shown */
+.squirmie-menu.show {
+    animation: squish-stretch 0.5s ease-out forwards;
+}
