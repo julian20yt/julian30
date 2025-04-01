@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julian30 Meme Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Glitch Text -->
+    <div class="glitch" data-text="Julian30">Julian30</div>
+
+    <!-- Squirmie Buttons -->
+    <button class="button wiggly-button"><span>Squirmie Button 1</span></button>
+    <button class="button wiggly-button"><span>Squirmie Button 2</span></button>
+    <button class="button wiggly-button"><span>Squirmie Button 3</span></button>
+
+    <!-- Squirmie Style Start Menu -->
+    <div id="squirmieMenu" class="squirmie-menu">
+        <a href="https://www.youtube.com/@Julian30YT">
+            <div class="menu-item">Page</div>
+        </a>
+        <div class="menu-item">Close Menu</div>
+    </div>
+
+    <!-- Windows 7 Taskbar -->
+    <div class="taskbar">
+        <!-- Start Button -->
+        <div class="start-button" onclick="openImage('https://upload.wikimedia.org/wikipedia/commons/5/58/Android_Lollipop_screenshot.png')">
+            <img src="https://cdn.pixabay.com/photo/2021/10/17/14/47/windows-7-logo-6718525_960_720.png" alt="Start">
+            <span>Start</span>
+        </div>
+        
+        <!-- Taskbar Icons -->
+        <div class="taskbar-icons">
+            <a href="https://upload.wikimedia.org/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/43/Windows_Media_Player_11_Mini-player_-_Visualization.png" class="taskbar-icon" alt="Windows Media Player">
+            </a>
+            <a href="https://www.xbox.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Internet_Explorer_10%2B11_logo.svg" class="taskbar-icon" alt="Internet Explorer">
+            </a>
+            <a href="https://upload.wikimedia.org/" target="_blank">
+                <img src="https://winaero.com/blog/wp-content/uploads/2018/11/folder-icon-big-256.png" class="taskbar-icon" alt="Folder">
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Glitchy Text Effect Toggle
+        const startButton = document.querySelector('.start-button');
+        const squirmieMenu = document.getElementById('squirmieMenu');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        startButton.addEventListener('click', () => {
+            squirmieMenu.style.display = squirmieMenu.style.display === 'none' ? 'block' : 'none';
+            if (squirmieMenu.style.display === 'block') {
+                squirmieMenu.classList.add('show');  // Add animation class when menu is shown
+            } else {
+                squirmieMenu.classList.remove('show');  // Remove animation class when menu is hidden
+            }
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.textContent === 'Close Menu') {
+                    squirmieMenu.style.display = 'none';
+                    squirmieMenu.classList.remove('show');
+                }
+            });
+        });
+
+        // Open Image in a new tab
+        function openImage(imageUrl) {
+            const imgWindow = window.open("", "_blank");
+            imgWindow.document.write(`<img src="${imageUrl}" style="width: 100vw; height: 100vh; object-fit: contain;">`);
+        }
+    </script>
+</body>
+</html>
