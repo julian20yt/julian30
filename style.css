@@ -127,14 +127,14 @@ body {
 }
 
 .taskbar-icons img {
-    width: 10px; /* Smaller icons */
-    height: 10px;
+    width: 6px; /* Smaller icons */
+    height: 6px;
     margin-right: 8px;
 }
 
 .start-button img {
-    width: 10.5px; /* Smaller Start button icon */
-    height: 10.5px;
+    width: 5.5px; /* Smaller Start button icon */
+    height: 5.5px;
     margin-right: 5px;
 }
 
