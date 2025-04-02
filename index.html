@@ -12,10 +12,13 @@
     <!-- News iFrame -->
 <iframe width="560" height="315" src="./embed/news.html" ></iframe>
 
-    <!-- Squirmie Style Start Menu -->
+    <!-- Squirmie Style Data Menu -->
     <div id="squirmieMenu" class="squirmie-menu">
         <a href="https://www.youtube.com/@Julian30YT">
             <div class="menu-item">Page</div>
+        </a>
+         <a href="./start/">
+            <div class="menu-item">Start Menu</div>
         </a>
         <div class="menu-item">Close Menu</div>
     </div>
@@ -41,6 +44,9 @@
             </a>
             <a href="https://www.google.com/" target="_blank">
                 <img src="https://www.apkmirror.com/wp-content/themes/APKMirror/ap_resize/ap_resize.php?src=https%3A%2F%2Fdownloadr2.apkmirror.com%2Fwp-content%2Fuploads%2F2021%2F09%2F00%2F615377e37c796.png&w=96&h=96&q=100" class="taskbar-icon" alt="Google">
+            </a>
+            <a href="#" onclick="spamSquirmie(); return false;">
+                <img src="https://play-lh.googleusercontent.com/E8abWF0D4nt9Il12VRFBqWkqawYF2g7vPmyspPOYqXzh9PH8VWDdT0hIF9viC5le-Lc=w240-h480-rw" alt="Android Market">
             </a>
         </div>
     </div>
@@ -71,10 +77,37 @@
         });
 
         // Open Image in a new tab
-        function openImage(imageUrl) {
-            const imgWindow = window.open("", "_blank");
-            imgWindow.document.write(`<img src="${imageUrl}" style="width: 100vw; height: 100vh; object-fit: contain;">`);
+        function openImage(url) {
+            const imgWindow = window.open();
+            imgWindow.document.write(`<p>Were sorry, the site "${url}" requested cannot be found. Try searching for something else.</p>`);
         }
+        function api(meme) {
+         document.innerHTML(<h1><strong>${meme}</strong></h1>)
+        }
+        function spamSquirmie() {
+    const squirmie = document.createElement('div');
+    squirmie.innerText = 'Squirmie';
+
+    // Randomize position
+    squirmie.style.position = 'absolute';
+    squirmie.style.left = Math.random() * window.innerWidth + 'px';
+    squirmie.style.top = Math.random() * window.innerHeight + 'px';
+
+    // Randomize color
+    squirmie.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+    // Style for visibility
+    squirmie.style.fontFamily = 'Helvetica Black';
+    squirmie.style.fontSize = '24px';
+    squirmie.style.fontWeight = 'bold';
+    squirmie.style.pointerEvents = 'none'; // So it doesn't interfere with clicks
+
+    document.body.appendChild(squirmie);
+}
+
+// Spams Squirmie text every 100ms
+
+
     </script>
 </body>
 </html>
