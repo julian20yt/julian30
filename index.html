@@ -29,13 +29,29 @@
 
     <script>
         function updateTime() {
-            const options = { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric', weekday: 'long' };
-            const now = new Date().toLocaleString('en-US', options);
-            const [day, time] = now.split(", ");
+            const options = { 
+                timeZone: 'America/New_York', 
+                hour12: true, 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric', 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const now = new Date().toLocaleString('en-US', options).split(", ");
             
-            document.getElementById('day').innerText = day;
+            const dayDate = `${now[0]}, ${now[1]} ${now[2]}`;
+            const time = now[3];
+
+            document.getElementById('day').innerText = dayDate;
             document.getElementById('time').innerText = time;
         }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 
         updateTime();
         setInterval(updateTime, 1000);
