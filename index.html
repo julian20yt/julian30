@@ -22,7 +22,24 @@
         </a>
         <div class="menu-item">Close Menu</div>
     </div>
+    <div id="time-container">
+        <h1 id="day"></h1>
+        <p id="time"></p>
+    </div>
 
+    <script>
+        function updateTime() {
+            const options = { timeZone: 'America/New_York', hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric', weekday: 'long' };
+            const now = new Date().toLocaleString('en-US', options);
+            const [day, time] = now.split(", ");
+            
+            document.getElementById('day').innerText = day;
+            document.getElementById('time').innerText = time;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
     <!-- Windows 7 Taskbar -->
     <div class="taskbar">
         <!-- Start Button -->
