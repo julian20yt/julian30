@@ -188,3 +188,7 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+time-container {
+color: white;
+}
