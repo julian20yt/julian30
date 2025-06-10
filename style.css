@@ -192,3 +192,7 @@ body {
 time-container {
 color: white;
 }
+
+#time {
+    display: none;
+}
